@@ -8,8 +8,8 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermi
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import ChatAdminRequired, UserAdminInvalid, RPCError
 
-API_ID = int(os.getenv("API_ID", "0"))
-API_HASH = os.getenv("API_HASH", "")
+API_ID = int(os.getenv("API_ID", "28811345"))
+API_HASH = os.getenv("API_HASH", "8df803a8832e85ddddcd8c05fe840a05")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "8999750576:AAEHat76G7Dt9hkalIxn0GZX28fZDkPezdE")
 OWNER_ID = int(os.getenv("OWNER_ID", "8250224070"))
 
