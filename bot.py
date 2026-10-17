@@ -17,6 +17,10 @@ from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, ChatPermi
 from pyrogram.enums import ChatMemberStatus
 from pyrogram.errors import ChatAdminRequired, UserAdminInvalid, RPCError
 
+# ==================== BIO LINK WARN IMPORT ====================
+from bio_link_warn import register_bio_link_handlers
+# =============================================================
+
 API_ID = int(os.getenv("API_ID", "28811345"))
 API_HASH = os.getenv("API_HASH", "8df803a8832e85ddddcd8c05fe840a05")
 BOT_TOKEN = os.getenv("BOT_TOKEN", "8999750576:AAEHat76G7Dt9hkalIxn0GZX28fZDkPezdE")
@@ -211,7 +215,10 @@ async def help_handler(_, message):
         "`/gmute` - Global mute list mein add karein\n"
         "`/ungmute` - Global mute list se remove karein\n"
         "`/id` - User aur chat ID dekhein\n\n"
-        "User ke message par reply karein ya @username dein.",
+        "User ke message par reply karein ya @username dein.\n\n"
+        "**Bio Link Protection:**\n"
+        "`/scanbio` - Group ke members scan karke bio link walo ko 1 baar notify kare\n"
+        "`/resetbiowarn` - Kisi user ke bio warns reset kare (reply karke)",
         reply_markup=buttons()
     )
 
@@ -352,6 +359,11 @@ async def id_handler(_, message):
         )
 
 
+# ==================== BIO LINK WARN REGISTER ====================
+register_bio_link_handlers(app)
+# ===============================================================
+
+
 if __name__ == "__main__":
-    print("Group Manager Bot (MongoDB) is running...")
+    print("Group Manager Bot is running...")
     app.run()
